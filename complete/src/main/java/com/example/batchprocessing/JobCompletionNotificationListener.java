@@ -23,7 +23,7 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
 
 	@Override
 	public void afterJob(JobExecution jobExecution) {
-		if(jobExecution.getStatus() == BatchStatus.COMPLETED) {
+		/*if(jobExecution.getStatus() == BatchStatus.COMPLETED) {
 			log.info("!!! JOB FINISHED! Time to verify the results");
 
 			jdbcTemplate.query("SELECT first_name, last_name FROM people",
@@ -31,6 +31,29 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
 					rs.getString(1),
 					rs.getString(2))
 			).forEach(person -> log.info("Found <" + person + "> in the database."));
-		}
+		}*/
+		jdbcTemplate.query("SELECT  id,  created_by,  created_date,  last_modified_by,  last_modified_date,  version,  amount,  bill_reference,  channel,  msidsn,  participant_ref,  provider,  provider_product,  remote_ref,  response,  reversed,  status FROM bill_payment ",
+				(rs, row) -> new BillPayment(
+						rs.getString(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getString(5),
+						rs.getString(6),
+						rs.getString(7),
+						rs.getString(8),
+						rs.getString(9),
+						rs.getString(10),
+						rs.getString(11),
+						rs.getString(12),
+						rs.getString(13),
+						rs.getString(14),
+						rs.getString(15),
+						rs.getString(16),
+						rs.getString(17)
+				)
+		).forEach(bill -> log.info("Found <" + bill + "> in the database."));
+
+
 	}
 }

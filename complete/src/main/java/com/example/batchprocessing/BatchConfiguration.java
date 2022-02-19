@@ -64,6 +64,37 @@ public class BatchConfiguration {
 	}
 	// end::readerwriterprocessor[]
 
+
+/*
+	@Bean
+	public FlatFileItemReader<BillPayment> reader1() {
+		return new FlatFileItemReaderBuilder<BillPayment>()
+				.name("billItemReader")
+				.resource(new ClassPathResource("CASHMET.csv"))
+				.delimited()
+				.names(new String[]{"firstName", "lastName"})
+				.fieldSetMapper(new BeanWrapperFieldSetMapper<BillPayment>() {{
+					setTargetType(BillPayment.class);
+				}})
+				.build();
+	}
+	//"POST DATE","NARRATION","FT REFERENCE T24","RRN","CELL NUMBER","DEBIT ACCOUNT NUMBER","DEBIT ACCOUNT NAME","CREDIT ACCOUNT NUMBER","CREDIT" "ACCOUNT NAME","VALUE DATE","ENTRY TYPE", "DEBIT" , "CREDIT" , "BALANCE" , "REMARKS" ,"","","","","","",
+
+	@Bean
+	public JdbcBatchItemWriter<BillPayment> writer1(DataSource dataSource) {
+		return new JdbcBatchItemWriterBuilder<BillPayment>()
+				.itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
+				.sql("INSERT INTO people (first_name, last_name) VALUES (:firstName, :lastName)")
+				.dataSource(dataSource)
+				.build();
+	}
+	// end::readerwriterprocessor[]*/
+
+
+
+
+
+
 	// tag::jobstep[]
 	@Bean
 	public Job importUserJob(JobCompletionNotificationListener listener, Step step1) {

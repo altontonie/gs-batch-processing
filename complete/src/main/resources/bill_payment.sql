@@ -1,32 +1,57 @@
-DROP TABLE people IF EXISTS;
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: mariadb
+-- Generation Time: Feb 15, 2022 at 10:22 AM
+-- Server version: 10.6.5-MariaDB-1:10.6.5+maria~focal-log
+-- PHP Version: 7.4.20
 
-CREATE TABLE people  (
-    person_id BIGINT IDENTITY NOT NULL PRIMARY KEY,
-    first_name VARCHAR(20),
-    last_name VARCHAR(20)
-);
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
-CREATE TABLE bill_payment (
-  id bigint NOT NULL,
-  created_by varchar(50) NOT NULL,
-  created_date datetime(6) DEFAULT NULL,
-  last_modified_by varchar(50) DEFAULT NULL,
-  last_modified_date datetime(6) DEFAULT NULL,
-  version bigint NOT NULL,
-  amount varchar(255) DEFAULT NULL,
-  bill_reference varchar(255) DEFAULT NULL,
-  channel varchar(255) DEFAULT NULL,
-  msidsn varchar(255) DEFAULT NULL,
-  participant_ref varchar(255) DEFAULT NULL,
-  provider varchar(255) DEFAULT NULL,
-  provider_product varchar(255) DEFAULT NULL,
-  remote_ref varchar(255) DEFAULT NULL,
-  response varchar(255) DEFAULT NULL,
-  reversed bit(1) DEFAULT NULL,
-  status varchar(255) DEFAULT NULL
-);
 
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `akuwallet`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bill_payment`
+--
+
+CREATE TABLE `bill_payment` (
+  `id` bigint(20) NOT NULL,
+  `created_by` varchar(50) NOT NULL,
+  `created_date` datetime(6) DEFAULT NULL,
+  `last_modified_by` varchar(50) DEFAULT NULL,
+  `last_modified_date` datetime(6) DEFAULT NULL,
+  `version` bigint(20) NOT NULL,
+  `amount` varchar(255) DEFAULT NULL,
+  `bill_reference` varchar(255) DEFAULT NULL,
+  `channel` varchar(255) DEFAULT NULL,
+  `msidsn` varchar(255) DEFAULT NULL,
+  `participant_ref` varchar(255) DEFAULT NULL,
+  `provider` varchar(255) DEFAULT NULL,
+  `provider_product` varchar(255) DEFAULT NULL,
+  `remote_ref` varchar(255) DEFAULT NULL,
+  `response` varchar(255) DEFAULT NULL,
+  `reversed` bit(1) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `bill_payment`
+--
+
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (825, 'system', '2021-07-28 15:59:52.774008', NULL, '2021-07-28 15:59:52.774008', 0, '300', '0775482364', 'APP', '263775482364', '76b9864f-577b-4a78-bef7-015b80d8157a', 'ECONET', 'AIRTIME', NULL, '000', b'0', NULL),
 (826, 'system', '2021-07-28 16:02:49.328358', NULL, '2021-07-28 16:02:49.328358', 0, '300', '0775482364', 'APP', '263775482364', 'c037f5cf-08e9-4810-ab46-8da4d59e4fc1', 'ECONET', 'AIRTIME', NULL, '000', b'0', NULL),
 (827, 'system', '2021-07-28 16:02:57.684485', NULL, '2021-07-28 16:02:57.684485', 0, '300', '0775482364', 'APP', '263775482364', 'b1fa6de6-6026-412d-9b04-8b3680403309', 'ECONET', 'AIRTIME', NULL, '000', b'0', NULL),
@@ -244,7 +269,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (1039, 'system', '2021-08-26 08:46:31.879950', NULL, '2021-08-26 08:47:00.204592', 0, '10000', '263719120758', 'WALLET', '263719120758', '82d66990-c9e3-4ae1-a9d9-48c94843b70c', 'NETONE', 'AIRTIME', NULL, '001', b'0', 'REVERSAL SUBMITTED FOR PROCESSING'),
 (1040, 'system', '2021-08-26 08:46:33.138062', NULL, '2021-08-26 08:47:00.434030', 0, '10000', '263716553038', 'WALLET', '263716553038', '72973d1f-e602-473a-a1dc-7f50aa23a41f', 'NETONE', 'AIRTIME', NULL, '001', b'0', 'REVERSAL SUBMITTED FOR PROCESSING'),
 (1041, 'system', '2021-08-26 08:49:05.080834', NULL, '2021-08-26 08:50:00.319879', 0, '10000', '263719120758', 'WALLET', '263719120758', '3413cab5-7b55-4cf7-8b3c-f1bc962df460', 'NETONE', 'AIRTIME', NULL, '001', b'0', 'REVERSAL SUBMITTED FOR PROCESSING');
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (1042, 'system', '2021-08-26 08:49:08.940911', NULL, '2021-08-26 08:49:08.940911', 0, '15000', '37131121057', 'WALLET', '263782687896', '9be1ffa6-786a-431b-9c77-60a67ecc17df', 'ZETDC_PPE', 'DEFAULT', NULL, '000', b'0', NULL),
 (1043, 'system', '2021-08-26 08:54:44.993519', NULL, '2021-08-26 08:55:00.336591', 0, '20000', '263719755136', 'WALLET', '263777755136', 'c0919295-e4e6-4db8-a9a7-b1e9cdbbfed5', 'NETONE', 'AIRTIME', NULL, '001', b'0', 'REVERSAL SUBMITTED FOR PROCESSING'),
 (1044, 'system', '2021-08-26 08:56:17.824988', NULL, '2021-08-26 08:57:00.281869', 0, '20000', '263717554402', 'WALLET', '263773261890', '3af01458-5065-4930-984e-44ff2f467d58', 'NETONE', 'AIRTIME', NULL, '001', b'0', 'REVERSAL SUBMITTED FOR PROCESSING'),
@@ -456,7 +481,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (1250, 'system', '2021-09-01 22:58:45.200184', NULL, '2021-09-01 22:58:45.200184', 0, '24000', '263715527226', 'WALLET', '263773715563', '56895886-d818-407d-af0d-1c610ad00a35', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (1251, 'system', '2021-09-02 03:31:16.815942', NULL, '2021-09-02 03:31:16.815942', 0, '20000', '14108205791', 'WALLET', '263772389897', '0952c360-2603-402d-a956-76cec560230f', 'ZETDC_PPE', 'DEFAULT', NULL, '000', b'0', NULL),
 (1252, 'system', '2021-09-02 04:08:58.193335', NULL, '2021-09-02 04:08:58.193335', 0, '5000', '263715566779', 'WALLET', '263782687896', 'bd14d798-212e-4ae0-8115-3abb6e319122', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (1253, 'system', '2021-09-02 04:09:26.732435', NULL, '2021-09-02 04:10:00.105611', 0, '2500', '263772389897', 'WALLET', '263772389897', '368789e1-45ba-4909-bc81-5a2b834aa8b6', 'ECONET', 'AIRTIME', NULL, '001', b'0', 'REVERSAL SUBMITTED FOR PROCESSING'),
 (1254, 'system', '2021-09-02 05:53:23.367893', NULL, '2021-09-02 05:54:01.126896', 0, '5000', '263772104484', 'WALLET', '263772104484', 'ce55646a-97fc-47c3-a336-f23848af9547', 'ECONET', 'AIRTIME', NULL, '001', b'0', 'REVERSAL SUBMITTED FOR PROCESSING'),
 (1255, 'system', '2021-09-02 05:54:29.299136', NULL, '2021-09-02 05:55:00.647799', 0, '5000', '263712801149', 'WALLET', '263772104484', 'b11723a4-2587-49f6-b0bd-8c1617146eaf', 'ECONET', 'AIRTIME', NULL, '001', b'0', 'REVERSAL SUBMITTED FOR PROCESSING'),
@@ -689,7 +714,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (1482, 'system', '2021-09-17 09:23:07.046378', NULL, '2021-09-17 09:24:00.234755', 0, '25000', '263719491434', 'WALLET', '263772491434', '-YLLW550BI2L', 'NETONE', 'AIRTIME', NULL, '001', b'0', 'REVERSAL SUBMITTED FOR PROCESSING'),
 (1483, 'system', '2021-09-17 10:39:46.280473', NULL, '2021-09-17 10:39:46.280473', 0, '1000', '263772426654', 'WALLET', '263772426654', '1LJ6W0XW29PU', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (1484, 'system', '2021-09-17 10:57:42.871403', NULL, '2021-09-17 10:57:42.871403', 0, '4400', '263772699555', 'WALLET', '263772699555', '-PMV4UNRUOO8', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (1485, 'system', '2021-09-17 11:02:24.329574', NULL, '2021-09-17 11:02:24.329574', 0, '2000', '263774740399', 'WALLET', '263774740399', '-PSC2900W0MR', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (1486, 'system', '2021-09-17 11:03:06.424164', NULL, '2021-09-17 11:03:06.424164', 0, '1000', '263774558948', 'WALLET', '263774558948', '1F5FWXDJ7IL2', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (1487, 'system', '2021-09-17 11:03:23.187543', NULL, '2021-09-17 11:03:23.187543', 0, '1000', '263774558948', 'WALLET', '263774558948', '-1P1FCZ2F9JA', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -934,7 +959,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (1726, 'system', '2021-09-27 06:32:30.060506', NULL, '2021-09-27 06:32:30.060506', 0, '3100', '263734181639', 'WALLET', '263734181639', '-ZIEHIAVTT2J', 'TELECEL', 'AIRTIME', NULL, '000', b'0', NULL),
 (1727, 'system', '2021-09-27 08:40:40.780357', NULL, '2021-09-27 08:40:40.780357', 0, '20000', '37125862559', 'WALLET', '263772360889', 'IBWFVLAI018L', 'ZETDC_PPE', 'DEFAULT', NULL, '000', b'0', NULL),
 (1728, 'system', '2021-09-27 10:08:52.147550', NULL, '2021-09-27 10:08:52.147550', 0, '15000', '263719260003', 'WALLET', '263771385744', '-3ZBWTPT3SHQ', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (1729, 'system', '2021-09-27 11:12:09.904378', NULL, '2021-09-27 11:12:09.904378', 0, '350000', '263719286602', 'WALLET', '263787280531', '-1TLI7R9S8X4', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (1730, 'system', '2021-09-27 11:16:13.701936', NULL, '2021-09-27 11:16:13.701936', 0, '200000', '263719286602', 'WALLET', '263787280531', 'FB05PGYO1HH', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (1731, 'system', '2021-09-27 11:19:07.841400', NULL, '2021-09-27 11:19:07.841400', 0, '5000', '263773464842', 'WALLET', '263778773255', '-1QEMQ626DF0', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -1183,7 +1208,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (1974, 'system', '2021-10-14 06:22:42.151691', NULL, '2021-10-14 06:23:01.545754', 0, '1000', '263713291070', 'WALLET', '263774740399', '11XLTIK0RFG7', 'NETONE', 'AIRTIME', NULL, '001', b'0', 'REVERSAL SUBMITTED FOR PROCESSING'),
 (1975, 'system', '2021-10-14 07:44:17.712564', NULL, '2021-10-14 07:44:17.712564', 0, '1000', '263713291070', 'WALLET', '263774740399', 'VOPYX3TQSXLY', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (1976, 'system', '2021-10-14 08:19:13.731147', NULL, '2021-10-14 08:19:13.731147', 0, '5000', '14316749671', 'WALLET', '263774740399', 'V78W72SAGC6M', 'ZETDC_PPE', 'DEFAULT', NULL, '000', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (1977, 'system', '2021-10-14 09:06:23.340016', NULL, '2021-10-14 09:06:23.340016', 0, '10000', '263788800731', 'WALLET', '263778016972', '4YKG9FCD5BVT', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (1978, 'system', '2021-10-14 09:38:50.274771', NULL, '2021-10-14 09:38:50.274771', 0, '10000', '263778016972', 'WALLET', '263778016972', 'VMINGFX89V2R', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (1979, 'system', '2021-10-14 10:03:38.677600', NULL, '2021-10-14 10:03:38.677600', 0, '1000', '263733307684', 'WALLET', '263782895503', '10C6374RNAKM', 'TELECEL', 'AIRTIME', NULL, '000', b'0', NULL),
@@ -1432,7 +1457,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (2222, 'system', '2021-10-26 07:16:29.744663', NULL, '2021-10-26 07:16:29.744663', 0, '30000', '263713003868', 'WALLET', '263784553171', 'V15TC529ML6J', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (2223, 'system', '2021-10-26 08:04:17.713712', NULL, '2021-10-26 08:04:17.713712', 0, '400', '263783825863', 'WALLET', '263783825863', 'V1D3WOK5LHXK', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (2224, 'system', '2021-10-26 08:19:40.175678', NULL, '2021-10-26 08:19:40.175678', 0, '20000', '263772132801', 'WALLET', '263772132801', 'V1XEJ8YZDXRM', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (2225, 'system', '2021-10-26 11:35:01.872275', NULL, '2021-10-26 11:35:01.872275', 0, '1500', '263772956991', 'WALLET', '263772956991', 'V1L33E1PMY8C', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (2226, 'system', '2021-10-26 11:48:47.537609', NULL, '2021-10-26 11:48:47.537609', 0, '30000', '263713003868', 'WALLET', '263784553171', 'V1BFQGLA674Z', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (2227, 'system', '2021-10-26 12:08:10.936075', NULL, '2021-10-26 12:08:10.936075', 0, '300000', '263783473831', 'WALLET', '263783473831', 'V1UT6S3WQBAI', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -1678,7 +1703,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (2467, 'system', '2021-11-01 14:32:52.454815', NULL, '2021-11-01 14:32:52.454815', 0, '1000', '263775568960', 'WALLET', '263775568960', '1BL0JSF8UULW', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (2468, 'system', '2021-11-01 14:53:11.638614', NULL, '2021-11-01 14:53:11.638614', 0, '9000', '263719110952', 'WALLET', '263774298116', 'VOVE1SQ7K1VY', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (2469, 'system', '2021-11-01 14:59:38.061886', NULL, '2021-11-01 14:59:38.061886', 0, '10000', '263775568960', 'WALLET', '263775568960', 'VRZJ2NK0YMRO', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (2470, 'system', '2021-11-01 15:40:27.823574', NULL, '2021-11-01 15:40:27.823574', 0, '200000', '14108216327', 'WALLET', '263774773383', 'VFLPFSHHN926', 'ZETDC_PPE', 'DEFAULT', NULL, '000', b'0', NULL),
 (2471, 'system', '2021-11-01 17:31:43.541307', NULL, '2021-11-01 17:31:43.541307', 0, '100000', '263784636497', 'WALLET', '263784636497', 'V1HTGTQPZ5N0', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (2472, 'system', '2021-11-01 17:50:09.336863', NULL, '2021-11-01 17:50:09.336863', 0, '3900', '263772440885', 'WALLET', '263772440885', 'V1L32RZC3U6U', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -1924,7 +1949,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (2712, 'system', '2021-11-09 05:15:51.374798', NULL, '2021-11-09 05:15:51.374798', 0, '25000', '30710082949', 'WALLET', '263772426654', 'VM264M4GK3DK', 'ZETDC_PPE', 'DEFAULT', NULL, '000', b'0', NULL),
 (2713, 'system', '2021-11-09 08:34:01.741557', NULL, '2021-11-09 08:34:01.741557', 0, '2000', '263784240585', 'WALLET', '263784240585', 'V1FDX7ZVY73Q', 'ECONET', 'AIRTIME', NULL, 'I/O error on POST request for \"http://10.10.11.90:7001/xmlrpc\": Unexpected end of file from server; nested exception is java.net.SocketException: Unexpected end of file from server', b'0', NULL),
 (2714, 'system', '2021-11-09 08:35:11.227250', NULL, '2021-11-09 08:35:11.227250', 0, '2000', '263784240585', 'WALLET', '263784240585', 'V1F2ZD6CCHOL', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (2715, 'system', '2021-11-09 11:01:33.128440', NULL, '2021-11-09 11:01:33.128440', 0, '100000', '263777809670', 'WALLET', '263773656303', 'V1S5F5ZEMVVY', 'ECONET', 'AIRTIME', NULL, 'I/O error on POST request for \"http://10.10.11.90:7001/xmlrpc\": Connection timed out; nested exception is java.net.ConnectException: Connection timed out', b'0', NULL),
 (2716, 'system', '2021-11-09 11:02:20.232583', NULL, '2021-11-09 11:02:20.232583', 0, '100000', '263777809670', 'WALLET', '263773656303', 'VR5F725XOFT3', 'ECONET', 'AIRTIME', NULL, 'I/O error on POST request for \"http://10.10.11.90:7001/xmlrpc\": Connection timed out; nested exception is java.net.ConnectException: Connection timed out', b'0', NULL),
 (2717, 'system', '2021-11-09 13:01:45.381758', NULL, '2021-11-09 13:01:45.381758', 0, '10000', '263788261596', 'WALLET', '263788261596', 'VLDJXAFGLUWK', 'ECONET', 'AIRTIME', NULL, 'I/O error on POST request for \"http://10.10.11.90:7001/xmlrpc\": Unexpected end of file from server; nested exception is java.net.SocketException: Unexpected end of file from server', b'0', NULL),
@@ -2159,7 +2184,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (2946, 'system', '2021-11-19 16:42:47.140898', NULL, '2021-11-19 16:42:47.140898', 0, '2000', '263774639616', 'WALLET', '263774639616', 'VQX6SRSMYVIN', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (2947, 'system', '2021-11-19 16:55:00.296197', NULL, '2021-11-19 16:55:00.296197', 0, '7000', '263784784386', 'WALLET', '263784784386', 'V1V6SPY2ECN2', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (2948, 'system', '2021-11-19 17:00:27.988870', NULL, '2021-11-19 17:00:27.988870', 0, '2000', '263774639616', 'WALLET', '263774639616', '1LM3KUTQAFM9', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (2949, 'system', '2021-11-19 17:20:08.535829', NULL, '2021-11-19 17:20:08.535829', 0, '18000', '263715625528', 'WALLET', '263771296986', 'VJBOE9ZTSZLO', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (2950, 'system', '2021-11-19 18:26:09.940408', NULL, '2021-11-19 18:26:09.940408', 0, '20000', '263786823332', 'WALLET', '263718516402', 'SIJVCJWSEL1P', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (2951, 'system', '2021-11-19 18:27:38.964022', NULL, '2021-11-19 18:27:38.964022', 0, '3100', '263774639616', 'WALLET', '263774639616', '1PSJ3RPXRIRG', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -2410,7 +2435,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (3196, 'system', '2021-11-27 12:41:17.959735', NULL, '2021-11-27 12:41:17.959735', 0, '20000', '263771961797', 'WALLET', '263771961797', 'V1P9FR7D03HK', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (3197, 'system', '2021-11-27 13:28:11.792676', NULL, '2021-11-27 13:28:11.792676', 0, '1300', '263785856751', 'WALLET', '263785856751', '14AIK7RT8SLI', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (3198, 'system', '2021-11-27 13:40:44.171543', NULL, '2021-11-27 13:40:44.171543', 0, '230000', '263783825863', 'WALLET', '263783825863', 'I3V2MP1U9LRG', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (3199, 'system', '2021-11-27 13:40:58.371883', NULL, '2021-11-27 13:40:58.371883', 0, '1000', '263783826108', 'WALLET', '263783826108', '1H7HFY5TSSK6', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (3200, 'system', '2021-11-27 14:17:02.944731', NULL, '2021-11-27 14:17:02.944731', 0, '4000', '263786767570', 'WALLET', '263786767570', 'MQPDNS97R7ET', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (3201, 'system', '2021-11-27 16:15:19.901405', NULL, '2021-11-27 16:15:19.901405', 0, '15000', '263773041357', 'WALLET', '263773041357', '15FJJ4T599AP', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -2658,7 +2683,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (3443, 'system', '2021-12-03 09:28:07.033069', NULL, '2021-12-03 09:28:07.033069', 0, '10000', '263772259404', 'WALLET', '263772259404', '1HIFVHURWK6X', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (3444, 'system', '2021-12-03 09:38:50.576752', NULL, '2021-12-03 09:38:50.576752', 0, '10000', '263774656747', 'WALLET', '263713434563', 'Q32DBJ184RNL', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (3445, 'system', '2021-12-03 10:04:16.402203', NULL, '2021-12-03 10:04:16.402203', 0, '5000', '263788261596', 'WALLET', '263788261596', 'V1E5JECYZBIU', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (3446, 'system', '2021-12-03 10:10:34.694907', NULL, '2021-12-03 10:10:34.694907', 0, '10000', '263780881626', 'WALLET', '263713434563', 'V1DXW1C65ZT5', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (3447, 'system', '2021-12-03 10:13:19.619387', NULL, '2021-12-03 10:13:19.619387', 0, '10000', '263772570074', 'WALLET', '263772570074', 'CCWG2KZTWXEX', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (3448, 'system', '2021-12-03 10:22:22.442021', NULL, '2021-12-03 10:22:22.442021', 0, '10000', '263780727431', 'WALLET', '263786768432', 'V1EUPLRGTWR8', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -2908,7 +2933,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (3692, 'system', '2021-12-07 23:01:23.709860', NULL, '2021-12-07 23:01:23.709860', 0, '300000', '263772593396', 'WALLET', '263772593396', 'RDKP6CHDFIAB', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (3693, 'system', '2021-12-08 00:21:23.025725', NULL, '2021-12-08 00:21:23.025725', 0, '9500', '263719185062', 'WALLET', '263777389953', 'V51FCPQ6FGZR', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (3694, 'system', '2021-12-08 05:38:01.308282', NULL, '2021-12-08 05:38:01.308282', 0, '100000', '263712801149', 'WALLET', '263712801149', 'TFF9II6KDHCP', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (3695, 'system', '2021-12-08 05:41:34.346389', NULL, '2021-12-08 05:41:34.346389', 0, '15000', '263719048822', 'WALLET', '263773048822', 'XWSN2E51T6KB', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (3696, 'system', '2021-12-08 06:11:17.615724', NULL, '2021-12-08 06:11:17.615724', 0, '3000', '263776615828', 'WALLET', '263776615828', 'V18P5JJC3WKZ', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (3697, 'system', '2021-12-08 06:59:23.250142', NULL, '2021-12-08 06:59:23.250142', 0, '7000', '263775568960', 'WALLET', '263775568960', 'V1ROXJH0UD4W', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -3158,7 +3183,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (3941, 'system', '2021-12-16 06:07:02.982260', NULL, '2021-12-16 06:07:02.982260', 0, '25000', '263783201800', 'WALLET', '263783201800', 'V1RGPD43Q0NM', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (3942, 'system', '2021-12-16 06:56:01.734053', NULL, '2021-12-16 06:56:01.734053', 0, '5000', '263788820305', 'WALLET', '263788820305', '11SB3HSBX1TF', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (3943, 'system', '2021-12-16 07:02:48.908343', NULL, '2021-12-16 07:02:48.908343', 0, '7000', '263784673151', 'WALLET', '263780163818', 'V1F059IJ149Q', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (3944, 'system', '2021-12-16 07:02:52.587200', NULL, '2021-12-16 07:02:52.587200', 0, '5000', '263777537381', 'WALLET', '263777537381', 'MYYM7695I5DH', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (3945, 'system', '2021-12-16 07:31:39.657248', NULL, '2021-12-16 07:31:39.657248', 0, '50000', '263773715563', 'WALLET', '263773715563', 'PS5SBB54SSFN', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (3946, 'system', '2021-12-16 07:39:13.780405', NULL, '2021-12-16 07:39:13.780405', 0, '7000', '263716203614', 'WALLET', '263716203614', '289Y1K0SQLZB', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -3410,7 +3435,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (4192, 'system', '2021-12-23 07:30:54.558458', NULL, '2021-12-23 07:30:54.558458', 0, '16000', '263773631145', 'WALLET', '263772714072', 'V1LDVJSGF1HR', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (4193, 'system', '2021-12-23 08:58:08.512234', NULL, '2021-12-23 08:58:08.512234', 0, '20000', '263715437253', 'WALLET', '263715437253', 'JH5YV72SP89F', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (4194, 'system', '2021-12-23 09:05:28.455892', NULL, '2021-12-23 09:05:28.455892', 0, '16000', '263780734576', 'WALLET', '263772714072', 'V1SR6JW427TF', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (4195, 'system', '2021-12-23 09:24:03.391693', NULL, '2021-12-23 09:24:03.391693', 0, '10000', '263783074769', 'WALLET', '263783074769', '142DPQVOQTEY', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (4196, 'system', '2021-12-23 09:39:20.909869', NULL, '2021-12-23 09:39:20.909869', 0, '10000', '263777998909', 'WALLET', '263777998909', '1D9BUZBPR7FH', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (4197, 'system', '2021-12-23 10:19:54.527178', NULL, '2021-12-23 10:19:54.527178', 0, '10000', '263777998909', 'WALLET', '263777998909', 'VR81BVSPIQVB', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -3663,7 +3688,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (4444, 'system', '2021-12-30 15:14:32.420252', NULL, '2021-12-30 15:14:32.420252', 0, '12000', '263783074769', 'WALLET', '263783074769', '3UN5JYJI1ES8', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (4445, 'system', '2021-12-30 15:30:51.584070', NULL, '2021-12-30 15:30:51.584070', 0, '35000', '263779958863', 'WALLET', '263779958863', 'V14INTMVF4V9', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (4446, 'system', '2021-12-30 15:58:07.945806', NULL, '2021-12-30 15:58:07.945806', 0, '10000', '263771859307', 'WALLET', '263715693098', 'JJX59YQXCT58', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (4447, 'system', '2021-12-30 16:30:40.224145', NULL, '2021-12-30 16:30:40.224145', 0, '50000', '263719715563', 'WALLET', '263773715563', 'V2WS4YBD2LHZ', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (4448, 'system', '2021-12-30 16:30:46.551732', NULL, '2021-12-30 16:30:46.551732', 0, '10000', '14108205791', 'WALLET', '263772389897', '16KNQPCDUE5S', 'ZETDC_PPE', 'DEFAULT', NULL, '000', b'0', NULL),
 (4449, 'system', '2021-12-30 18:03:44.422785', NULL, '2021-12-30 18:03:44.422785', 0, '500', '263775825184', 'WALLET', '263775825184', 'VO9CIMDUV93R', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -3912,7 +3937,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (4692, 'system', '2022-01-05 11:27:31.921205', NULL, '2022-01-05 11:27:31.921205', 0, '360000', '37125676058', 'WALLET', '263774693793', 'VM30FLCPI4J8', 'ZETDC_PPE', 'DEFAULT', NULL, '000', b'0', NULL),
 (4693, 'system', '2022-01-05 11:35:00.874334', NULL, '2022-01-05 11:35:00.874334', 0, '5000', '263772570074', 'WALLET', '263772570074', 'VVNMWASP6HFK', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (4694, 'system', '2022-01-05 11:36:42.961261', NULL, '2022-01-05 11:36:42.961261', 0, '85000', '37125416067', 'WALLET', '263774693793', '5HU017LFUIXB', 'ZETDC_PPE', 'DEFAULT', NULL, '000', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (4695, 'system', '2022-01-05 11:51:14.113370', NULL, '2022-01-05 11:51:14.113370', 0, '20000', '263719048822', 'WALLET', '263773048822', 'V15WVJBQ7EH1', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (4696, 'system', '2022-01-05 12:06:41.293305', NULL, '2022-01-05 12:06:41.293305', 0, '5000', '263784784386', 'WALLET', '263784784386', 'BF670RC9UY84', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (4697, 'system', '2022-01-05 12:23:25.121431', NULL, '2022-01-05 12:23:25.121431', 0, '9200', '263778060126', 'WALLET', '263778060126', '1WWRDYWSVQZ8', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -4164,7 +4189,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (4943, 'system', '2022-01-10 12:59:15.801164', NULL, '2022-01-10 12:59:15.801164', 0, '10000', '263774773383', 'WALLET', '263774773383', '1L7KFBVUGWUA', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (4944, 'system', '2022-01-10 13:26:34.354313', NULL, '2022-01-10 13:26:34.354313', 0, '51000', '263784872104', 'WALLET', '263772714072', 'VR3IK395Q7IM', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (4945, 'system', '2022-01-10 13:31:27.704562', NULL, '2022-01-10 13:31:27.704562', 0, '36000', '263773868457', 'WALLET', '263719328893', 'V13V0IDKMOB7', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (4946, 'system', '2022-01-10 14:00:08.564338', NULL, '2022-01-10 14:00:08.564338', 0, '12000', '263714660184', 'WALLET', '263772714072', '115HXKA9TVP5', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (4947, 'system', '2022-01-10 15:18:46.322409', NULL, '2022-01-10 15:18:46.322409', 0, '2000', '263719120758', 'WALLET', '263719120758', '1LIIAFYTE7QH', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (4948, 'system', '2022-01-10 16:18:35.274258', NULL, '2022-01-10 16:18:35.274258', 0, '2000', '263784784386', 'WALLET', '263784784386', 'OM7DO8FAFAK7', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -4415,7 +4440,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (5193, 'system', '2022-01-16 13:50:37.261971', NULL, '2022-01-16 13:50:37.261971', 0, '30000', '263719048822', 'WALLET', '263773048822', '1XLENHFG6LU6', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (5194, 'system', '2022-01-16 13:57:20.640019', NULL, '2022-01-16 13:57:20.640019', 0, '10000', '263713434563', 'WALLET', '263713434563', 'CK88T6INHJV2', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (5195, 'system', '2022-01-16 14:55:49.246765', NULL, '2022-01-16 14:55:49.246765', 0, '10000', '263783074769', 'WALLET', '263783074769', '1188ZNK9ZP7W', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (5196, 'system', '2022-01-16 15:01:57.920970', NULL, '2022-01-16 15:01:57.920970', 0, '1000', '263779790306', 'WALLET', '263719120758', 'V5LGNCDXYYQS', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (5197, 'system', '2022-01-16 15:05:44.433207', NULL, '2022-01-16 15:06:00.100730', 0, '20000', '263712582388', 'WALLET', '263783074769', '1GCJBSUDTJEU', 'NETONE', 'AIRTIME', NULL, '001', b'0', 'REVERSAL SUBMITTED FOR PROCESSING'),
 (5198, 'system', '2022-01-16 15:06:15.151656', NULL, '2022-01-16 15:07:00.222146', 0, '20000', '263712582388', 'WALLET', '263783074769', 'E7IEBGNQ6RKB', 'NETONE', 'AIRTIME', NULL, '001', b'0', 'REVERSAL SUBMITTED FOR PROCESSING'),
@@ -4667,7 +4692,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (5444, 'system', '2022-01-23 12:57:35.815756', NULL, '2022-01-23 12:57:35.815756', 0, '20000', '263718956585', 'WALLET', '263771296986', 'V119ZGFD4O6Y', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
 (5445, 'system', '2022-01-23 13:01:08.824966', NULL, '2022-01-23 13:01:08.824966', 0, '30000', '263783665187', 'WALLET', '263772146230', 'V1OG6Z6ODJ0K', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (5446, 'system', '2022-01-23 13:43:53.299778', NULL, '2022-01-23 13:43:53.299778', 0, '18000', '263784099873', 'WALLET', '263785967226', 'V1X9GSRY0360', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (5447, 'system', '2022-01-23 15:43:47.490329', NULL, '2022-01-23 15:43:47.490329', 0, '1800', '263777389953', 'WALLET', '263777389953', '78SGK4KHCOAU', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (5448, 'system', '2022-01-23 16:15:23.616264', NULL, '2022-01-23 16:15:23.616264', 0, '15000', '37125969438', 'WALLET', '263772708827', 'V1P4T53YCTDA', 'ZETDC_PPE', 'DEFAULT', NULL, '000', b'0', NULL),
 (5449, 'system', '2022-01-23 16:25:49.831597', NULL, '2022-01-23 16:25:49.831597', 0, '5000', '263774109004', 'WALLET', '263772216854', 'JAS6H92S8P8C', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -4919,7 +4944,7 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (5695, 'system', '2022-02-04 06:49:58.174140', NULL, '2022-02-04 06:49:58.174140', 0, '8000', '263778059102', 'WALLET', '263778059102', 'VPSY8CFN7L7S', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (5696, 'system', '2022-02-04 06:58:29.193733', NULL, '2022-02-04 06:58:29.193733', 0, '330000', '37216021164', 'WALLET', '263719980217', '4PO8M0V2DMX3', 'ZETDC_PPE', 'DEFAULT', NULL, '000', b'0', NULL),
 (5697, 'system', '2022-02-04 07:01:01.661224', NULL, '2022-02-04 07:01:01.661224', 0, '5000', '263774983763', 'WALLET', '263774983763', 'V19BVHAEBZQL', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
-INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_modified_date, version, amount, bill_reference, channel, msidsn, participant_ref, provider, provider_product, remote_ref, response, reversed, status) VALUES
+INSERT INTO `bill_payment` (`id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `version`, `amount`, `bill_reference`, `channel`, `msidsn`, `participant_ref`, `provider`, `provider_product`, `remote_ref`, `response`, `reversed`, `status`) VALUES
 (5698, 'system', '2022-02-04 07:23:52.466228', NULL, '2022-02-04 07:23:52.466228', 0, '10000', '263772426654', 'WALLET', '263772426654', 'V15WSLJX5QIC', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (5699, 'system', '2022-02-04 07:57:14.182908', NULL, '2022-02-04 07:57:14.182908', 0, '2000', '263777176155', 'WALLET', '263777176155', 'V1F97O3CM8T6', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL),
 (5700, 'system', '2022-02-04 10:07:07.954901', NULL, '2022-02-04 10:07:07.954901', 0, '10000', '263716032071', 'WALLET', '263772426654', 'VW9FNS1KLDOB', 'NETONE', 'AIRTIME', NULL, '0', b'0', NULL),
@@ -5149,5 +5174,28 @@ INSERT INTO bill_payment (id, created_by, created_date, last_modified_by, last_m
 (5924, 'system', '2022-02-15 06:49:28.535132', NULL, '2022-02-15 06:49:28.535132', 0, '5000', '263774773383', 'WALLET', '263774773383', 'V8K1TIGCA5JV', 'ECONET', 'AIRTIME', NULL, '0', b'0', NULL);
 
 --
--- Dumping data for table bill_payment
+-- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bill_payment`
+--
+ALTER TABLE `bill_payment`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UK_26t57kna6yhdikiy81xps8x6j` (`remote_ref`),
+  ADD UNIQUE KEY `UK_m27jbc2flhcx0qkoesojuk2y4` (`remote_ref`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `bill_payment`
+--
+ALTER TABLE `bill_payment`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5925;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
